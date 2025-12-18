@@ -8,7 +8,7 @@ import { workspaceController } from "@/modules/workspace";
 const app = new Elysia({ prefix: "/api" })
   .use(
     cors({
-      origin: process.env.NEXT_PUBLIC_APP_URL,
+      origin: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
       credentials: true,
       allowedHeaders: ["Content-Type", "Authorization"],
       methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],

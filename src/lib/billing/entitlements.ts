@@ -29,7 +29,7 @@ export async function getOrganizationEntitlements(organizationId: string) {
 // Helper to assert pro (example)
 export async function assertProOrg(organizationId: string) {
   const entitlements = await getOrganizationEntitlements(organizationId);
-  if (!entitlements?.isPaid && entitlements?.plan !== "pro") {
+  if (!entitlements?.isPaid || entitlements?.plan !== "pro") {
     throw new Error("Organization requires Pro plan");
   }
   return true;
