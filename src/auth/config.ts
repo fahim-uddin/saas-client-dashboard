@@ -1,4 +1,4 @@
-import { dubAnalytics } from "@dub/better-auth";
+// import { dubAnalytics } from "@dub/better-auth";
 import {
   checkout,
   polar,
@@ -10,7 +10,7 @@ import { Polar } from "@polar-sh/sdk";
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { organization } from "better-auth/plugins";
-import { Dub } from "dub";
+// import { Dub } from "dub";
 import { db } from "@/db";
 import { updateOrganizationEntitlements } from "@/lib/billing/entitlements";
 
@@ -19,9 +19,9 @@ const polarClient = new Polar({
   server: process.env.POLAR_ENV === "production" ? "production" : "sandbox",
 });
 
-const dubClient = new Dub({
-  token: process.env.DUB_API_KEY || "dummy",
-});
+// const dubClient = new Dub({
+//   token: process.env.DUB_API_KEY || "dummy",
+// });
 
 export const auth = betterAuth({
   database: drizzleAdapter(db, {
@@ -80,13 +80,13 @@ export const auth = betterAuth({
         }),
       ],
     }),
-    dubAnalytics({
-      dubClient,
-      oauth: {
-        clientId: process.env.DUB_OAUTH_CLIENT_ID || "dummy",
-        clientSecret: process.env.DUB_OAUTH_CLIENT_SECRET || "dummy",
-      },
-    }),
+    // dubAnalytics({
+    //   dubClient,
+    //   oauth: {
+    //     clientId: process.env.DUB_OAUTH_CLIENT_ID || "dummy",
+    //     clientSecret: process.env.DUB_OAUTH_CLIENT_SECRET || "dummy",
+    //   },
+    // }),
   ],
   session: {
     cookieCache: {
